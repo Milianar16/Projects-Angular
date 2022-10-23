@@ -1,0 +1,41 @@
+<main class="wrapper">
+    <aside class="card-container">
+    <app-cartao-credito [dadosCartao]="formCartaoDeCredito"></app-cartao-credito>
+    </aside>
+    <section class="form-container">
+      <form action="#" style="width: 500px;">
+        <div>
+          <label for="name" class="form-label">Nome do Cartão</label>
+          <input type="text" class="form-control" id="name" placeholder="Talita Neves" name="name" [(ngModel)]="formCartaoDeCredito.nome">
+        </div>
+        <div class="mt-3">
+          <label for="name" class="form-label">Número do Cartão</label>
+          <input type="text" class="form-control" id="name" placeholder="1111 1111 1111 1111" maxlength="19" name="number" [(ngModel)]="formCartaoDeCredito.numero">
+        </div>
+        <div class="d-flex mt-3 justify-content-between">
+          <div class="d-flex flex-column">
+            <p class="m-0 mb-2">Expiração</p>
+            <div class="d-flex" style="width: 150px;">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="month" maxlength="2" name="month"[(ngModel)]="formCartaoDeCredito.mes">
+                <label for="month">MM</label>
+              </div>
+              <div class="form-floating ms-2">
+                <input type="text" class="form-control" id="year" maxlength="2" name="year"[(ngModel)]="formCartaoDeCredito.ano">
+                <label for="year">AA</label>
+              </div>
+            </div>
+          </div>
+          <div class="ms-2">
+            <label for="cvc" class="form-label">CVC</label>
+            <input type="text" class="form-control" id="cvc" placeholder="111" style="height: 58px;" maxlength="3" name="cvc"[(ngModel)]="formCartaoDeCredito.cvc">
+          </div>
+        </div>
+        <div class="d-flex flex-column mt-3">
+          <button class="btn" id="confirm">Confirmar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+  
+  

@@ -1,0 +1,109 @@
+*{ 
+    box-sizing:  border-box;
+    margin:0;
+    padding:0;
+    
+    
+}
+
+div{
+    width:350px;
+    height: 200px;
+     text-align: center ;           
+}
+
+.card{
+    border-style: solid ; 
+    height:max-content;
+    border-width: 4px;
+    border-color: red;
+    
+}
+
+img{
+    width:150px;
+    display:flex;
+    justify-content:center;
+    margin-top: 70px;
+    margin:80px;
+    background-color: rgb(195, 6, 6);
+       
+}
+
+h2{
+    font-size:20px;
+    margin-bottom:0;
+}
+
+.button{
+    background-color: rgb(255, 4, 0);
+    height: 40px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    border:none;
+    color:white;
+    font-weight:500;
+   cursor:pointer;
+ 
+    
+      
+}
+
+
+/*section{
+    width: 350px;
+    padding-bottom:0;
+    border:1px solid black;
+    display:flex;
+
+}
+
+.img-container img{
+    width:350px;
+    background:#ebe9e9;
+    diplay:flex;
+    justify-content:center;
+}
+
+.img-container img{
+    heigth:150px;
+
+}
+.product-data{
+    display:flex;
+    flex-direction:colum;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+h2{
+    font-size:20px;
+    margin-bottom:0;
+}
+
+p{
+    text-align:center;
+    font-size:13px;
+}
+
+strong{
+    background-color:green
+}
+
+button{
+    border:none;
+    heigth:40px;
+    background-color:pink
+    color:white;
+    font-family: 'Montessert', sans-ref;
+    font-weight:500;
+    cursor:pointer;
+}
+
+
+
+
+
+
+*/

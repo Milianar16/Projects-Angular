@@ -1,0 +1,39 @@
+<!-- ngIf  serve para que a partir de uma determinada condição
+booleana um elemento HTML ou componente apareça na sua tela ou não-->
+
+<div class="card" *ngIf="mostrarProduto==true">
+   <img [src]="prod.imagem" alt="" 
+   class="card-image-top">
+ <div class="card-body">
+    <h5 class="card-title">{{ prod.nome}}</h5>
+    <h6 class="card-subtitle text-muted">{{prod.preco}}</h6>
+    <!-- estoque menor ou igual a 10 -vermelho
+   maior que 10 e menor ou igual a 30 - Amarelo
+   maior que 30 e menor que 100- azul
+   maior que 100 = verde
+
+  azul=bg-primary
+  amarelo=bg-warning
+  vermelho=bg-danger
+  verde=bg-sucess
+    -->
+
+    <!--NgClass
+   te permite adicionar ou remover classes de um elemento a partir de condições lógicas(booleanas)-->
+
+   <span class="badge mb-1" 
+   [ngClass]="{'bg-danger': prod.estoque <= 10, 
+   'bg-warning': prod.estoque > 10 && prod.estoque <= 30, 
+   'bg-primary': prod.estoque > 30 && prod.estoque <= 100, 
+   'bg-success': prod.estoque > 100}"
+   >{{prod.estoque}} unidades restantes</span>
+   <p class="card-text text-truncate">{{prod.descricao}}</p>
+   <button class="btn btn-sm btn-danger" (click)="esconderProduto()">Esconder Produto</button>
+   <button class="x ms-5" (click)="excluir(prod.nome)">X</button>
+</div>
+</div>
+<div class="card" *ngIf="mostrarProduto == false">
+<p>Produto {{prod.nome}} escondido para todos os usuarios.</p>
+<button class="btn btn-sm btn-danger" (click)="esconderProduto()">Mostrar Produto</button>
+</div>
+

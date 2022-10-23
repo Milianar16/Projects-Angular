@@ -1,0 +1,78 @@
+.wrapper {
+  display: flex;
+}
+
+.credit-card-front {
+  width: 350px;
+  height: 200px;
+  background: linear-gradient(45deg, #fb8500, #ffb703);
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.credit-card-logo {
+  flex-grow: 1;
+}
+
+.credit-card-number {
+  margin-bottom: 15px;
+}
+
+.credit-card-number strong {
+  font-size: 20px;
+}
+
+.credit-card-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.credit-card-data .name {
+  text-transform: uppercase;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.credit-card-number .expiration-date {
+  font-size: 12px;
+}
+
+.credit-card-back {
+  width: 350px;
+  height: 200px;
+  padding: 20px 0;
+  background-color: #cecbcb;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin-left: 20px;
+}
+
+.credit-card-back .line {
+  height: 50px;
+  background-color: #0f0f0f;
+}
+
+.cvc {
+  margin: 10px 20px;
+  background-color: #a3a2a2;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: flex-end;
+  font-weight: 300;
+  font-size: 14px;
+  color: #cecbcb;
+}
+
+
+
+
+

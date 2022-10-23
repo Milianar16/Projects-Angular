@@ -1,0 +1,10 @@
+<app-card titulo="Coxinha de Strogonoff"
+banner="https://images.unsplash.com/photo-1665674040807-52c76556580e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
+username=" Flavinho do Pneu"
+corBtn="blue"
+></app-card>
+<app-uploader (uploadCompleto)="mostrarMsg()"></app-uploader>
+<input type="file" #inputFile>
+<!--Ao clicar no botão, desejo executar o método do click() do input-->
+<!--Variáveis de Template - Template Variables-->
+<button id="btn" (click)="inputFile.click()">Selecionar um arquivo</button>

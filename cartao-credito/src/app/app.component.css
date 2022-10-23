@@ -1,0 +1,29 @@
+main.wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 30px;
+  }
+  
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #confirm {
+    background: linear-gradient(45deg, #023047, #219ebc);
+    color: white;
+  }
+  
+  
+
+

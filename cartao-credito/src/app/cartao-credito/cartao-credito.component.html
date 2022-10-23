@@ -1,0 +1,26 @@
+<div class="wrapper">
+    <div class="credit-card-front">
+      <div class="credit-card-logo">
+        <img src="https://img.icons8.com/fluency/344/mastercard.png" alt="Mastercard Logo" width="50px"><br>
+        <img src="https://img.icons8.com/plasticine/344/sim-card-chip.png" width="50px">
+      </div>
+      <div class="credit-card-number">
+        <strong>{{dadosCartao.numero ||'0000 0000 0000 0000'}}</strong>
+      </div>
+      <div class="credit-card-data">
+        <p class="name">
+         {{dadosCartao.nome || 'Miliana Rocha'}}
+        </p>
+        <strong class="expiration-date">
+          {{dadosCartao.mes || '00'}}/{{dadosCartao.ano || '00'}}
+        </strong>
+      </div>
+    </div>
+  
+    <div class="credit-card-back">
+      <div class="line"></div>
+      <div class="cvc">
+        <strong>{{dadosCartao.cvc || '000'}}</strong>
+      </div>
+    </div>
+  </div>

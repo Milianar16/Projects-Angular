@@ -1,0 +1,12 @@
+
+<!--<p>{{ title }}</p>
+<p>{{ 11* 5 }}</p>
+<p>O resultado da soma de 20 + 10 é: {{ somar(20, 10)}}</p>
+<input [type]="tipoInput" [value]='title'>
+<button (click)="mudarTipoDoInput()">Mostrar/esconder</button> -->
+
+<input type="number" placeholder="Digite o 1° número"[(ngModel)]="n1" name="valor1"><br><br>
+<input type="number" placeholder="Digite o 2° número"[(ngModel)]="n2" name="valor2">
+<p>
+  {{ n1 }} + {{ n2}}={{n1+n2}}
+</p>
