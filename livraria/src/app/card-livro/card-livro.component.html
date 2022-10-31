@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="card-capa">
+        <img [src]="livro.capa" class="img_capa">
+    </div>
+    <div class="card-conteudo">
+        <p class="card-conteudo_nota"><strong>Minha nota: </strong><img [src]="livro.nota" class="img-nota"></p>
+        <p class="card-conteudo_titulo"><strong>Título:</strong> {{livro.titulo}}</p>
+        <p class="card-conteudo_autor"><strong>Autor(a):</strong> {{livro.autor}}</p>
+        <p class="card-conteudo_paginas"><strong>Nº de páginas:</strong> {{livro.paginas}}</p>
+    </div>
+    <div class="card-lixeira" (click)="excluirLivro()">
+        <img src="../../assets/cesto-de-lixo.png" class="lixinho">
+    </div>
+</div>

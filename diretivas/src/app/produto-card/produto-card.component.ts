@@ -17,11 +17,9 @@ export class ProdutoCardComponent implements OnInit {
     preco: 0
   }
 
-  @Output() excluindoEvent = new EventEmitter<String>();
-
-  excluir(indexExclusao: String){
-    this.excluindoEvent.emit(indexExclusao)
-  }
+@Output()
+  deletar:EventEmitter<Produto> = new EventEmitter<Produto>()
+  
 
   mostrarProduto: boolean = true
 
@@ -33,6 +31,9 @@ export class ProdutoCardComponent implements OnInit {
     }
   }
 
+  emitirEventoDeletar():void{
+    this.deletar.emit(this.prod)
+  }
   ngOnInit(): void {
   }
 

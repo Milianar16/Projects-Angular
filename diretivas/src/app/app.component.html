@@ -33,7 +33,7 @@
     <app-produto-card [prod]="p"></app-produto-card>  -->
 
     <!--ngFor serve pra percorrer listas dentro do HTML do seu componente-->
-    <produto-card *ngFor="let item of produtos" [prod]="item" (excluindoEvent)="excluirProduto($event)"></produto-card>
+    <produto-card *ngFor="let item of produtos" [prod]="item" (deletar)="deletarProduto($event)"></produto-card>
   </section>
   
 </main>

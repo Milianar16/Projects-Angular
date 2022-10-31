@@ -1,0 +1,65 @@
+.card{
+    border-radius: 10px;
+    background-color:aquamarine;
+    width: 500px;
+    height: 340px; 
+    display: flex; 
+    margin: 20px; 
+    box-sizing: border-box;
+
+}
+
+strong{
+    color: #6e5e7d;
+}
+
+.img_capa{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px 0 0 8px;
+    box-sizing: border-box;
+    object-fit: cover;
+}
+
+.img-nota{
+    max-width: 70px;
+    height: 15px;
+    margin-left: 10px;
+}
+
+.card-conteudo_nota{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.card-capa{
+    width: 50%;
+    height: 100%;
+    margin-right: 5px;  
+}
+
+.card-conteudo{
+    padding: 15px;
+    color: black;
+    width: 30%;
+}
+
+.card-lixeira{
+    display: flex;
+    height: 100%;
+    width: 10%;
+    align-items: flex-end;
+}
+
+.lixinho{
+    width: 20px;
+    height: 20px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.lixinho:hover{
+    transform: scale(1.1);
+}
+

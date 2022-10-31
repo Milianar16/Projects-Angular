@@ -1,0 +1,38 @@
+:root {
+  --main-bg: #fdc500;
+  --text-color-primary: #fff;
+  --text-color-secondary: #000;
+  --btn-bg: #00509d;
+}
+
+html {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0 10rem;
+  box-sizing: border-box;
+  background: var(--main-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+}
+
+.button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  color: var(--text-color-primary);
+  background: var(--btn-bg);
+  font-size: 2rem;
+}
+
+.counter {
+  font-size: 5rem;
+}

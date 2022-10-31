@@ -38,13 +38,11 @@ export class AppComponent {
     })
 
   }
-  excluirProduto(indexExclusao: String){
-    for (const iterator of this.produtos) {
-      if(iterator.nome == indexExclusao){
-        const x = this.produtos.indexOf(iterator)
-        this.produtos.splice(x, 1)
+
+  deletarProduto(p: Produto):void{
+    const index= this.produtos.indexOf(p)
+    this.produtos.splice(index, 1)
       }
     }
 
-  }
-}
+  

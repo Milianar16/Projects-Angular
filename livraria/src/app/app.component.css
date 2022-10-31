@@ -1,0 +1,181 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    background-color: rgba(169, 169, 169, 0.714);
+    margin: 0;
+    padding: 0;
+    
+}
+
+.container-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    height: auto;
+    
+    
+}
+.titulo{
+    color:rgba(0, 0, 0, 0.943);
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 50px;
+}
+
+.form-cadastro{
+    background-color:palevioletred;
+    border-radius: 15px;
+    width: 90%;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    background-image: url('https://static.wixstatic.com/media/fb09d6_5dd829a3af494ed4af3ea63adbe5f7f0~mv2.jpg/v1/fit/w_1000%2Ch_709%2Cal_c%2Cq_80/file.jpg') ;
+    background-size:320px;
+    background-repeat:no-repeat;
+    background-position-y: 20%;
+    background-position-x: -5%;
+}
+
+.form-cadastro_titulo{
+    color:rgba(0, 0, 0, 0.689);
+    font-weight: 500;
+    font-size: 34px;
+}
+
+.form-cadastro_formulario{
+    display: flex; 
+    align-items: center;  
+    justify-content: flex-start;
+    width: 100%;
+   
+}
+
+.btn-adicionar{
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+input{
+    background-color:pink;
+    border: 1px solid #5d486f;
+    border-radius: 20px;
+    padding: 5px;
+    width: 28%;
+    height: 20px;
+    margin-right: 10px;
+    
+}
+
+input#paginas{
+    width: 13%;
+}
+
+input:focus{
+    outline: 1px solid black;    
+}
+
+.caixa-avaliacao{
+    display: flex;
+    width:400px;
+    height: 30px;
+    align-items: center;
+    color:palevioletred;
+    margin: 0 10px;
+}
+
+.avaliacao{
+    margin-right: 5px;
+    
+}
+
+.icone-estrela{
+    cursor: pointer;
+    
+}
+
+.btn-adicionar{
+    background-color: #b71fb7;
+    border: none;
+    transition: 0.5s;
+}
+
+.btn-adicionar:hover{
+    transform: scale(1.2);
+}
+
+/* CARDS */
+
+.cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    margin: 20px 80px;
+}
+
+.form-cadastro_formulario{
+    display: flex; 
+    flex-direction:row;
+    align-items: center;
+    width: 80%;
+
+}
+
+.btn-adicionar{
+    cursor: pointer;
+    margin-left: 15px;
+  
+}
+
+input{
+    border-radius: 20px;
+    padding: 5px;
+    width: 28%;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.caixa-avaliacao{
+    display: flex;
+    width: auto;
+    height: 40px;
+    align-items: center;
+    color:black;
+    margin: 0 30px;
+}
+
+.avaliacao{
+    margin-right: 5px;
+}
+
+.icone-estrela{
+    cursor: pointer;
+}
+
+.btn-adicionar{
+    background-color:palevioletred;
+    border: none;
+    transition: 0.5s;
+    border-radius: 15px;
+    width: 100px;
+    padding: 7px;
+}
+
+.btn-adicionar:hover{
+    transform: scale(1.1);
+}
+
+/* CARDS */
+
+.cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    margin: 20px 80px;
+}

@@ -29,7 +29,7 @@ booleana um elemento HTML ou componente apareça na sua tela ou não-->
    >{{prod.estoque}} unidades restantes</span>
    <p class="card-text text-truncate">{{prod.descricao}}</p>
    <button class="btn btn-sm btn-danger" (click)="esconderProduto()">Esconder Produto</button>
-   <button class="x ms-5" (click)="excluir(prod.nome)">X</button>
+   <button class="x ms-5" (click)="emitirEventoDeletar()">X</button>
 </div>
 </div>
 <div class="card" *ngIf="mostrarProduto == false">
@@ -37,3 +37,9 @@ booleana um elemento HTML ou componente apareça na sua tela ou não-->
 <button class="btn btn-sm btn-danger" (click)="esconderProduto()">Mostrar Produto</button>
 </div>
 
+<!--<div class="card">
+   <div class="card-body">
+     <p class="card-text">O produto {{ prod.nome }} não aparecerá para os usuários desse site</p>
+     <button class="btn btn-danger">Mostrar Novamente</button>
+   </div>
+ </div>-->
