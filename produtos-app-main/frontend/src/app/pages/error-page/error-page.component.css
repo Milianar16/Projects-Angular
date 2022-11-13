@@ -1,0 +1,18 @@
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 45px;
+}
+
+.container-btn {
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    right: 25px;
+    top: 88%;
+  
+}

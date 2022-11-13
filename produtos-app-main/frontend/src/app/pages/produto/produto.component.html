@@ -1,0 +1,54 @@
+<main class="container" *ngIf="produto != undefined"> <!-- existe um produto -->
+  <mat-card>
+    <img [src]="produto.foto || altImg" [alt]="produto.nome" mat-card-image>
+    <mat-card-subtitle>{{ produto.nome }}</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ produto.preco | currency:'BRL' }}</p>
+      <p class="desc">
+        {{ produto.descricao }}
+      </p>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <button mat-stroked-button color="warn" (click)="deletar()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Dados do Produto</mat-card-title>
+    </mat-card-header>
+    <mat-card-content >
+      <form action="#" [formGroup]="produtoForm" >
+        <mat-form-field appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input type="text" matInput formControlName="nome">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Preço</mat-label>
+          <input type="number" matInput formControlName="preco">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Descrição</mat-label>
+          <textarea matInput formControlName="descricao"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Foto</mat-label>
+          <input type="text" matInput formControlName="foto">
+        </mat-form-field>
+        <button type="submit" mat-stroked-button color="primary" [disabled]="produtoForm.invalid">Salvar</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <button routerLink="/produtos" mat-mini-fab color="accent" id="back" matTooltip="Voltar" matTooltipPosition="left">
+    <mat-icon>arrow_backward</mat-icon>
+  </button>
+</main>
+<main *ngIf="produtoNaoEncontrado == true" class="container">
+  <h1>404 :(</h1>
+  <p>Produto não encontrado</p>
+  <button mat-raised-button color="primary" routerLink="/produtos">
+    Voltar
+  </button>
+</main>

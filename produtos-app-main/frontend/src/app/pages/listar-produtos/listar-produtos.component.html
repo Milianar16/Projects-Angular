@@ -1,0 +1,27 @@
+<main class="container">
+  <mat-card *ngFor="let prod of produtos">
+    <img [src]="prod.foto || altImg" [alt]="prod.nome" mat-card-image>
+    <mat-card-subtitle>{{ prod.nome }}</mat-card-subtitle>
+    <mat-card-content>
+      <p class="preco">
+        <strong>{{ prod.preco | currency:'BRL' }}</strong>
+      </p>
+      <p class="desc">
+        {{ prod.descricao }}
+      </p>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <!-- /produtos/id -->
+      <a [routerLink]="'/produtos/' + prod.id" mat-stroked-button color="primary" matTooltip="Editar Produto">
+        <mat-icon>edit</mat-icon>
+      </a>
+      <button [routerLink]="'/produtos/' + prod.id"   mat-stroked-button color="warn"matTooltip="Deletar Produto" >
+        <mat-icon>delete</mat-icon >
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  <button routerLink="/produtos/novo" mat-mini-fab color="accent" id="go-form" matTooltip="Adicionar Produto" matTooltipPosition="left">
+    <mat-icon>add</mat-icon>
+  </button>
+</main>

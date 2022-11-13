@@ -1,0 +1,72 @@
+.body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  padding:20%;
+  justify-content: center;
+  background-image:url('https://store-images.s-microsoft.com/image/apps.6607.13510798887520085.3b5999bd-0689-4a5d-b1fa-378e87bb83a5.ee076621-7430-46f1-a4ac-a0c442d69e58?w=180&h=180&q=60');
+  background-repeat: repeat-y;
+  background-color: rgb(155, 149, 245);
+  
+}
+
+.img{
+  justify-content: center;
+}
+
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+
+}
+
+.mat-icon{
+  color:rgb(214, 60, 52);
+  margin: 18px;
+  justify-content: space-between;
+  margin-right:1px;
+  margin-left: 1px;
+ 
+}
+
+.mat-list-item{
+  background-color:rgb(145, 139, 233);
+  border-radius: 5px;
+
+}
+
+.mat-form-field{
+  margin:15px;
+  margin-left: 10px;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  width:300px ;
+}
+
+.mat-card{
+  margin-top: 20px;
+  width: 50%;
+}
+
+
+
+
+
+

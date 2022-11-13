@@ -1,0 +1,43 @@
+
+.container {
+  min-height: 100vh;
+  padding: 20px 150px;
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  grid-auto-rows: 350px;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+}
+
+.desc {
+  text-align: justify;
+  height: 60px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+#go-form {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+}
+
+.botao{
+  display:flex;
+  align-items: center;
+  justify-items: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  right:15px;
+  top:88%;
+  position:fixed;
+  background-color: blueviolet;
+
+}

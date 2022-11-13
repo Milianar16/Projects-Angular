@@ -1,0 +1,29 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-card {
+  width: 400px;
+}
+
+mat-card + mat-card {
+  margin-left: 32px;
+}
+
+.desc {
+  text-align: justify;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+#back {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+}

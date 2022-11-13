@@ -1,0 +1,28 @@
+<div class="container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Dados do Produto</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form action="#" [formGroup]="produtoForm" (ngSubmit)="salvarProduto()"><!-- dentro da tag form tenho acesso as informações do form group -->
+          <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input type="text" matInput formControlName="nome"> <!-- linkando o form control ao input -->
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Preço</mat-label>
+            <input type="number" matInput formControlName="preco">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Descrição</mat-label>
+            <textarea matInput formControlName="descricao"></textarea>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Foto</mat-label>
+            <input type="text" matInput formControlName="foto">
+          </mat-form-field>
+          <button type="submit" mat-stroked-button color="primary">Salvar</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>

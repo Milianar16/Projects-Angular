@@ -1,0 +1,18 @@
+<main class="container">
+  <section class="search">
+    <img src="https://yt3.ggpht.com/a-/AAuE7mA_Gqa5EVVZWNGTwaEZs2D8uFU-F8676g2BVg=s900-mo-c-c0xffffffff-rj-k-no" alt="FilmesApp" width="200px">
+    <form action="#" id="search-form" [formGroup]="filme" (ngSubmit)="procurar()">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input type="text" matInput placeholder="Ex: frogs123" formControlName="nomeFilme">
+      </mat-form-field>
+      <button mat-flat-button color="accent" matTooltip="Procurar Usuário" [disabled]="filme.invalid">
+        <mat-icon>search</mat-icon>
+      </button>
+      <div *ngFor="let filme of dadosFilmes.results">
+        <h1>{{filme.original_title}}</h1>
+        <img [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path">
+        </div>
+    </form>
+  </section>
+</main>

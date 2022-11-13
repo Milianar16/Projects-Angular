@@ -1,0 +1,28 @@
+<main class="container">
+  <img src="../assets/location-icon-3.png" alt="" width="200px">
+  <form action="#" id="search-form" [formGroup]="cepForm" (ngSubmit)="buscar()">
+    <mat-form-field appearance="outline">
+      <mat-label>Digite o Cep aqui</mat-label>
+      <input type="number" matInput placeholder="Ex: 62345678" formControlName="cep">
+    </mat-form-field>
+    <button mat-flat-button color="primary" matTooltip="Busca de Cep" [disabled]="cepForm.invalid" class="botao">
+      <mat-icon>search</mat-icon>
+    </button>
+  </form>
+  <mat-card *ngIf="cepF != undefined">
+    <mat-card-title>Cep:
+      <mat-card-content>
+        <mat-list class="lista">
+          <mat-list-item> Cidade: {{cepF.localidade}}</mat-list-item>
+          <mat-list-item> Cep: {{cepF.cep}} </mat-list-item>
+          <mat-list-item> Bairro: {{cepF.bairro}} </mat-list-item>
+          <mat-list-item> Uf: {{cepF.uf}} </mat-list-item>
+          <mat-list-item> Complemento: {{cepF.complemento}} </mat-list-item>
+          <mat-list-item> DDD: {{cepF.ddd}}</mat-list-item>
+          <mat-list-item> Logradouro: {{cepF.logradouro}}</mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card-title>
+  </mat-card>
+
+</main>
