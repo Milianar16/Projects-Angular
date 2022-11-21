@@ -1,0 +1,262 @@
+https://servicodados.ibge.gov.br/api/docs/localidades
+
+https://material.angular.io/
+
+1 - Esqueleto do projeto 
+    1.1 Gerar um projeto (ng new cadastro-pontos-venda --style=css --routing)
+    1.2 Instalar o angular material (ng add @angular/material) 
+    1.3 Criar uma pasta chamada router para inserir o arquivo app-routing.module.ts
+    1.4 Criar uma pasta chamada servicos e gerar um servico (ng g s ibge)
+    1.5 Criar uma pasta chamada modelo e gerar uma interface (ng g i dados)
+    1.6 Criar uma pasta chamada material e gerar um modulo material (ng g m material)
+    1.7 repassar html, css, interfaces e module-material da pasta enviar
+    1.8 Importar o modulo do material no app.module.ts
+    1.9 Garantir que temos todos esses imports no app.module.ts e se nao tiver, importar
+            imports: [
+                MaterialAngularModule,
+                BrowserModule,
+                AppRoutingModule,
+                BrowserAnimationsModule,
+                ReactiveFormsModule,
+                HttpClientModule,
+            ],
+
+2 - Submissao de formulario no componente de registro
+
+    2.1 Injetar o FormBuilder dentro do construtor do TS
+    2.2 Criacao da variavel formulario com a utilizacao do formBuilder.group
+    2.3 Vincular o formulario no html atraves do [FormGroup]="formulario"
+    2.4 Vincular as propriedades do formulario no html atraves do formControlName="nome"...
+    2.5 No TS, criar metodo adicionarLocalVenda para ser chamado no evento de submissao do formulario e imprimir no console os dados submetidos no formulario:
+            adicionarLocalVenda(evento: any) {
+                evento.preventDefault();
+                evento.stopPropagation();
+
+                const nome = this.formulario.get("nome")?.value;
+                const estado = this.formulario.get("estado")?.value;
+                ...
+
+                console.log("nome", nome)
+                console.log("estado", estado)
+                ...
+            }
+    2.6 Vincular o metodo ao evento no html atraves do (ngSubmit)="adicionarLocalVenda($event)"
+
+3 - Implementar consulta de estados no servico do IBGE
+
+    3.1 Injetar dentro do construtor do ibge.service.ts o HttpClient
+
+    3.2 Criar uma variável no service para inserir a base url da API de estados
+    
+    private readonly baseUrlUf: string = "https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome"
+
+    3.3 Criar um método dentro do service que vai retornar a busca na API
+    
+    ibge.service.ts:
+    buscarUf() {
+        return this.http.get(this.baseUrlUf)
+    }
+
+    3.4 Criar interface no dados.ts chamada IUf para especificar o retorno da api no metodo buscarUf 
+
+    dados.ts:
+    export interface IUf {
+        sigla: string,
+    }
+
+    ibge.service.ts:
+    buscarUf() {
+        return this.http.get<IUf[]>(this.baseUrlUf)
+    }
+
+4 Consumir servico dos estados do IBGE no componente de registro
+
+    4.1 Injetar o IBGEService dentro do construtor do TS
+
+    4.2 Utilizar o ngOnInit para chamar o metodo do service - Nesse caso chamaremos o método dentro do ngOnInit() porque queremos que o método buscarUf seja chamado assim que o componente for renderizado na tela (EU NAO PRECISO DE NENHUM PARAMETRO PARA CHAMAR ESTADO)
+
+    ngOnInit(): void {
+        this.IBGEService.buscarUf().subscribe((ufRetornado) => {});
+    }
+
+    4.3 Criar variavel do tipo IUf que recebera o valor do ufRetornado e importar a interface IUf para dentro do TS
+   
+    ufs: IUf[] = [];
+    
+    ngOnInit(): void {
+        this.IBGEService.buscarUf().subscribe((ufRetornado) => {     
+            this.ufs = ufRetornado;
+        });
+    }
+
+    4.4 Na option do select do estado que esta no html, utilizar ngFor para renderizar todos os itens que existem em uf. Usar {{uf.sigla}} tanto para o valor quanto para o texto dessa option.
+
+5 - Implementar consulta de municipios no servico do IBGE
+
+    5.1 Criar uma variável no service para inserir a base url da API de municipios
+    
+    private readonly baseUrlMunicipio: string = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"
+
+    5.2 Criar um método dentro do service que vai retornar a busca na API e esse metodo vai receber como parametro a uf selecionada (Para buscar o municipio precisamos primeiro fazer a busca da uf pois os municipios serao retornados com base na uf selecionada)
+    
+    ibge.service.ts:
+    buscarMunicipio(siglaEstado: string){
+        return this.http.get(`${this.baseUrlMunicipio}${siglaEstado}/municipios`)
+    }
+
+    5.3 Criar interface no dados.ts chamada IMunicipio para especificar o retorno da api no metodo buscarMunicipio 
+
+    dados.ts:
+    export interface IMunicipio {
+        nome: string
+    }
+
+    ibge.service.ts:
+    buscarMunicipio() {
+        return this.http.get<IMunicipio[]>(`${this.baseUrlMunicipio}${siglaEstado}/municipios`)
+    }
+
+6 Consumir servico dos municipios do IBGE no componente de registro
+
+    6.1 No select do estado, adicionar o evento (change) que sera chamado quando houver alguma mudanca no select de estado. Esse evento ira chamar o metodo responsavel por atualizar os municipios assim que um estado for selecionado e devera lhe passar um evento como parametro. Porque ao selecionar um estado, queremos que a API de municipio nos retorne os municipios correspondentes aquela uf.
+
+    <select matNativeControl (change)="procurarMunicipio($event)" formControlName="estado">
+
+    6.2 No TS, criar metodo que seja chamado no (change) e pegar o valor do estado atraves do evento.target.value (evento = evento do change; target = select disparou o evento; value = valor da option selecionada)
+
+    procurarMunicipio(evento: any) {
+        const idDoEstado = evento.target.value;
+        this.IBGEService.buscarMunicipio(idDoEstado).subscribe((municipioRetornado) => {})
+    }
+
+    6.3 Criar variavel do tipo IMunicipio que recebera o valor do municipioRetornado e importar a interface IMunicipio para dentro do TS
+   
+    municipios: IMunicipio[] = [];
+    
+    procurarMunicipio(evento: any) {
+        const idDoEstado = evento.target.value;
+        this.IBGEService.buscarMunicipio(idDoEstado).subscribe((municipioRetornado) => {
+            this.municipios = municipioRetornado;
+        })
+    }
+
+    6.3 Na option do select do municipio que esta no html, utilizar ngFor para renderizar todos os itens que existem em municipios. Usar {{municipio.nome}} tanto para o valor quanto para o texto dessa option.
+
+7 Remover console.log e submeter formulario do componente de registro com dados dinamicos
+
+    7.1 Remover console.log do metodo adicionarLocalVenda
+    7.2 Adicionar validacao para confirmar que todos os campos não estão vazios e adicionar formulario em um array.
+        7.2.1 Injetar dentro do construtor do ts o MatSnackBar
+        7.2.2 Criar variavel para armazenar os locais de venda e criar/importar a interface IFormulario
+
+        dados.ts
+        export interface IFormulario {
+            nome: string,
+            estado: string,
+            cidade: string,
+            local: string,
+            horarioInicio: string,
+            horarioTermino: string
+        }
+
+        registro.ts
+        localVendas: IFormulario[] = [];
+
+        7.2.3 Se os campos estiverem vazios, abrir snackbar com texto informativo de falha, se não inserir dentro de um array e abrir snackbar com texto informativo de sucesso
+
+        if (nome == "" || local == "" || cidade == "" || estado == "" || inicio == "" || termino == "") {
+            this.snackBar.open(`Preencha os campos abaixo`, 'fechar', {
+                duration: 5000,
+                horizontalPosition: "right",
+                verticalPosition: "bottom"
+            })
+        } 
+        else {
+            this.localVendas.push({
+                nome: nome,
+                estado: estado,
+                cidade: cidade,
+                local: local,
+                horarioInicio: inicio,
+                horarioTermino: termino
+            })
+
+            this.snackBar.open(`Ponto de venda cadastrado com sucesso`, `fechar`, {
+                duration: 5000,
+                horizontalPosition: "right",
+                verticalPosition: "bottom"
+            })
+        }
+    7.3 Listar no console array com locais de vendas adicionados
+
+8 Criacao das rotas
+
+    8.1 No app-routing.module.ts adicionar as rotas correspondentes as views
+
+    const routes: Routes = [{
+        path: "",
+            component: FormsComponent
+        },
+        {
+        path: "cadastros",
+            component: LocaisCadastradosComponent
+        }
+    ];
+
+<---------------------------------------------------------------->
+OBS.: O que é o localStorage?
+
+LocalStorage é um banco de dados que esta no navegador de cada usuario e podemos utiliza-lo para salvar informacoes assim como em um banco de dados tradicional.
+
+<---------------------------------------------------------------->
+
+localStorage.setItem("localVendas", JSON.stringify(this.localVendas));
+
+Utilizamos o metodo setItem para simular um POST, a adicao de um item ao banco de dados. Onde no primeiro parametro passamos o nome do elemento (KEY - pode ser batata) que sera salvo no banco, e no segundo o seu valor (VALUE). É importante que, esse valor seja uma string e por isso usamos o JSON.stringify(nome-da-variavel-que-queremos-armazenar) caso ela nao seja uma string.
+
+<---------------------------------------------------------------->
+
+this.localVendas = JSON.parse(localStorage.getItem("localVendas") || "[]");
+
+Utilizamos o metodo getItem para simular um GET, a pesquisa por um item no banco de dados onde passamos o nome desse item como parametro para esse metodo e passamos um valor padrao para caso esse item nao exista. É importante que, como o que adicionamos é transformado em uma string, utilizarmos o metodo parse do JSON: 
+JSON.parse(localStorage.getItem(nome-da-variavel-que-queremos-buscar)) para transformar novamente o item em array, objeto ou qualquer coisa diferente de uma string.
+
+<---------------------------------------------------------------->
+
+9 Utilizacao do localStorage como banco de dados para armazenar os locais cadastrados no ts registro e listar no ts do cards.
+
+    9.1 No TS do registro, depois de popular o array, adicionar o array ao localStorage atraves do comando:
+
+    localStorage.setItem("localVendas", JSON.stringify(this.localVendas));
+
+    9.2 O mesmo array que foi criado dentro do registro, deve ser criado no TS do cards. E no ngOnInit devemos atualiza-lo com o que foi armazenado no localStorage  
+
+    localVendas: IFormulario[] = [];
+
+    ngOnInit(): void {
+        this.localVendas = JSON.parse(localStorage.getItem("localVendas") || "[]");
+    }
+
+    9.3 No html, utilizar o ngFor para listar todos os itens que existem dentro do localVendas e usar {{}} para tornar-los dinamicos
+
+10 Utilizacao do localstorage para manter o array do TS do registro atualizado (Se nao fizermos, quando atualizarmos a pagina o array vai ser zerado e ao adicionar um novo, so teremos 1 item. Desconsideramos os demais)
+
+    10.1 Adicionar localStorage ao ngOnInit do registro ts
+
+    Como vai estar:
+
+    ngOnInit(): void {
+        this.IBGEService.buscarUf().subscribe((ufRetornado) => {     
+            this.ufs = ufRetornado;
+        });
+    }
+
+    Como deve ficar:
+
+    ngOnInit(): void {
+        this.localVendas = JSON.parse(localStorage.getItem("localVendas") || "[]");
+
+        this.IBGEService.buscarUf().subscribe((ufRetornado) => {     
+            this.ufs = ufRetornado;
+        });
+    }

@@ -1,0 +1,47 @@
+.conteudo-pagina{
+    display: flex;
+    padding: 50px;
+    justify-content: center;
+    background-color: rgb(78, 87, 116) ;
+    height: 82vh;
+}
+.conteudo-formulario{
+    display: flex;
+    flex-direction: column;
+    width: 100vh;
+    gap: 20px;
+}
+
+.camposSelecao{
+    display: flex;
+    justify-content: space-between;
+}
+
+.funcionamento{
+    display: flex;
+    justify-content: space-between;
+}
+
+.select{
+    width: 300px;
+}
+
+.locaisVendas{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100vh;
+    gap: 10px;
+    font-size: 14px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

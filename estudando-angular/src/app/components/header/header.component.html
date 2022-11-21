@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <span>Estudando Angular</span>
+  
+  <button mat-button [matMenuTriggerFor]="menu">
+      <i class="material-icons">menu</i>
+  </button>
+  <mat-menu #menu="matMenu">
+      <a routerLink="/" mat-menu-item>Home</a>
+      <a routerLink="/forms" mat-menu-item>Forms</a>
+      <a routerLink="/calcNota" mat-menu-item>Calcula Nota</a>
+      <a routerLink="/filmes" mat-menu-item>Filmes</a>
+  </mat-menu>
+</mat-toolbar>

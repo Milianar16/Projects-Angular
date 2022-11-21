@@ -1,0 +1,10 @@
+<app-header></app-header>
+
+<mat-card>
+    <mat-card-title>Lista de Filmes</mat-card-title>
+    <ul>
+        <li *ngFor="let filme of filmes">
+            {{filme.name}} - {{filme.category}} - {{filme.year}}
+        </li>
+    </ul>
+</mat-card>

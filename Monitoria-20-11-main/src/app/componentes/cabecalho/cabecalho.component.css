@@ -1,0 +1,15 @@
+.mat-toolbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+img{
+    width: 70px;
+    border-radius: 10px;
+}
+.titulo-img{
+    display: flex;
+    align-items: center;
+    gap:  20px;
+}

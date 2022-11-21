@@ -1,0 +1,19 @@
+img {
+    width: 20px;
+}
+
+.itens {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    position: aboslute;
+    bottom: 0;
+}
+
+.imagens-footer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+}

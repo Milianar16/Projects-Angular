@@ -1,0 +1,45 @@
+<app-cabecalho></app-cabecalho>
+<div class="conteudo-pagina">
+  <form>
+    <div class="conteudo-formulario">
+      <mat-form-field appearance="fill">
+        <mat-label>Nome do ponto</mat-label>
+        <input matInput placeholder="Rei dos Açai" required>
+      </mat-form-field>
+      <div class="camposSelecao">
+        <mat-form-field appearance="fill" class="select">
+          <mat-label>Uf</mat-label>
+          <select matNativeControl>
+            <option value="" selected disabled>Selecione uma opção</option>
+            <option value=""></option>
+          </select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="select">
+          <mat-label>Municipio</mat-label>
+          <select matNativeControl>
+            <option value="" selected disabled>Selecione uma opção</option>
+            <option value=""></option>
+          </select>
+        </mat-form-field>
+      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>Local do ponto</mat-label>
+        <input matInput placeholder="Praça dos Eucaliptos" required>
+      </mat-form-field>
+      <div class="funcionamento">
+        <mat-form-field appearance="fill" class="select">
+          <mat-label>Horário de início</mat-label>
+          <input matInput required type="time">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="select">
+          <mat-label>Horário de término</mat-label>
+          <input matInput required type="time">
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" type="submit">Adicionar</button>
+  </form>
+</div>
+<div class="footer">
+  <app-rodape></app-rodape>
+</div>

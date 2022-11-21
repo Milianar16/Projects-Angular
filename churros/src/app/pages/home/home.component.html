@@ -1,0 +1,54 @@
+<h2>Pontos de venda cadastrado</h2>
+<ul *ngIf="pontosDeChurros.length !== 0; else listaVazia">
+    <li *ngFor="let ponto of pontosDeChurros">
+        {{ponto.nome}} - {{ponto.localizacao}} - {{ponto.cidade}} - {{ponto.estado}} ({{ponto.comeca}} às {{ponto.termina}})
+    </li>
+</ul>
+<ng-template #listaVazia>
+    <p>Não há nenhum ponto cadastrado.</p>
+</ng-template>
+
+<hr>
+
+<h2>Cadastre um novo ponto de venda</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input type="text" matInput placeholder="Ex. Churros todo dia" formControlName="nome">
+    </mat-form-field>
+
+    <div class="double-field">
+        <mat-form-field appearance="fill">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="estado">
+                <mat-option *ngFor="let estado of estadoList" [value]="estado.nome" (onSelectionChange)="initializeFieldCidade(estado.id)">{{estado.nome}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Cidade</mat-label>
+            <mat-select [disabled]="isDisabledCidade" formControlName="cidade">
+                <mat-option *ngFor="let cidade of cidadeList" [value]="cidade.nome">{{cidade.nome}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Ponto de venda</mat-label>
+        <input type="text" matInput placeholder="Ex. Praça dos Estudantes" formControlName="localizacao">
+    </mat-form-field>
+
+    <div class="double-field">
+        <mat-form-field appearance="fill">
+            <mat-label>Começa às</mat-label>
+            <input type="time" matInput formControlName="comeca">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Termina às</mat-label>
+            <input type="time" matInput formControlName="termina">
+        </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary">Cadastrar</button>
+</form>

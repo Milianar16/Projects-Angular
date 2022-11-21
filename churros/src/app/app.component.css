@@ -1,0 +1,19 @@
+.container {
+    width: clamp(300px, 100%, 1200px);
+    margin: 30px auto 0;
+}
+
+mat-toolbar {
+    display: flex;
+    align-items: center;
+}
+
+mat-toolbar span {
+    color: white;
+}
+
+mat-toolbar img {
+    margin-left: 25px;
+    width: 60px;
+    filter: drop-shadow(0 0 20px white);
+}
